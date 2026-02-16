@@ -1,0 +1,10 @@
+-- Check for changes
+ssh -T git@github.com
+
+-- General commit
+git add .
+git commit -m "message"
+git push
+
+-- If authentication fails
+ssh -T git@github.com
