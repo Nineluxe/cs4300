@@ -5,4 +5,3 @@ def testHW():
     helloWorld()
     #assert helloWorld() == "Hello, World!"
 
-testHW()
