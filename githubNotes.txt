@@ -1,5 +1,11 @@
+-- Source your environment every time you start the container
+source homework1/bin/activate
+
+-- NOTE: You should have three different environments for homework1,
+-- homework2, and the group project.
+
 -- Check for changes
-ssh -T git@github.com
+git status
 
 -- General commit
 git add .
