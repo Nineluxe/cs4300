@@ -2,12 +2,20 @@ import math
 
 # Returns the sign of the value in string form
 def getSign(num):
+
+    # Verify this input is a number
+    if not isinstance(num, (int, float)):
+        return "error"
+    
+    # Check for cases
     if num > 0:
         return "Positive"
     elif num < 0:
         return "Negative"
-    else:
+    elif num == 0:
         return "Zero"
+    
+    return "error"
 
 # Generates a list of the first 10 prime numbers
 def printFirst10Primes():
