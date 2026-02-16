@@ -1,6 +1,6 @@
 
 def calculate_discount(startingPrice, discountPercentage):
-    
+    """ Takes a number of variable format (int, float or string) and returns the final price after increasing by a percentage. """
     # Converts arguments to floats
     startingPrice = float(startingPrice)
     discountPercentage = float(discountPercentage)

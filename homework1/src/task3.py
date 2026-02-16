@@ -2,7 +2,7 @@ import math
 
 # Returns the sign of the value in string form
 def getSign(num):
-
+    """ Returns a string, either: error, Positive, Negative, or Zero, based on the input number."""
     # Verify this input is a number
     if not isinstance(num, (int, float)):
         return "error"
@@ -19,7 +19,7 @@ def getSign(num):
 
 # Generates a list of the first 10 prime numbers
 def printFirst10Primes():
-
+    """ Prints the first 10 prime numbers. """
     # Check if the given number is prime
     def isPrime(num):
         if num < 2:
@@ -48,6 +48,7 @@ def printFirst10Primes():
 
 # Summation of numbers from 1 - 100
 def sum1To100():
+    """ Returns a summation of all numbers from 1 to 100. """
     num = 1
     count = 1
     while (count < 100):

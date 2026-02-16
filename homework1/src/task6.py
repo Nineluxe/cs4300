@@ -1,5 +1,6 @@
 
 def wordCount():
+    """ Reads from the file path and returns the word count. """
     # Initialize file path
     filePath = 'homework1/task6_read_me.txt'
 
