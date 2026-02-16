@@ -4,6 +4,11 @@ source homework1/bin/activate
 -- NOTE: You should have three different environments for homework1,
 -- homework2, and the group project.
 
+-- Run pytest from the project root
+cd cs4300
+pytest
+    -- As long as your files follow the format test_"filename".py 
+
 -- Check for changes
 git status
 
