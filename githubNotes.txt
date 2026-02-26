@@ -18,4 +18,4 @@ git commit -m "message"
 git push
 
 -- If authentication fails
-ssh -T git@github.com
+ssh -T git@github.com - Django135%
