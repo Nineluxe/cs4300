@@ -1,0 +1,13 @@
+<h1>Now Showing</h1>
+
+<ul>
+    {% for movie in movies %}
+        <li>
+            <strong>{{ movie.title }}</strong><br>
+            Director: {{ movie.director }}<br>
+            Year: {{ movie.year }}<br>
+            Duration: {{ movie.duration }} minutes
+        </li>
+        <hr>
+    {% endfor %}
+</ul>

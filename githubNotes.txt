@@ -14,8 +14,11 @@ git status
 
 -- General commit
 git add .
-git commit -m "message"
+git commit -m ""
 git push
 
 -- If authentication fails
 ssh -T git@github.com - Django135%
+
+-- Commands
+cd cs4300/homework2/move_theater_booking
