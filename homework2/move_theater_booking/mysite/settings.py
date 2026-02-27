@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cb--*0^s%@5*)1hre5cxrk9h=nw1f_tvc4+dp!%ajic3a6zd$y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['app-bholland-21.devedu.io']
 
 
 # Application definition
