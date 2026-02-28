@@ -1,1 +1,28 @@
-{% extends 'bookings/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Movie Theater{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">Movie Theater</a>
+        <div>
+            <a class="btn btn-outline-light me-2" href="{% url 'movie_list' %}">Movies</a>
+            <a class="btn btn-outline-light me-2" href="{% url 'booking_history' %}">My Bookings</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
