@@ -10,8 +10,8 @@ router.register('seats', SeatViewSet)
 router.register('bookings', BookingViewSet)
 
 urlpatterns = [
-    path('movies/', views.movie_list, name='movie_list'),
-    path('movies/<int:movie_id>/seats/', views.seat_booking, name='seat_booking'),
-    path('movies/<int:movie_id>/seats/<int:seat_id>/book/', views.book_seat, name='book_seat'),
-    path('history/', views.booking_history, name='booking_history'),
+    path('movies/', views.movieList, name='movieList'),
+    path('movies/<int:movie_id>/seats/', views.seatBooking, name='seatBooking'),
+    path('movies/<int:movie_id>/seats/<int:seat_id>/book/', views.bookSeat, name='bookSeat'),
+    path('history/', views.bookingHistory, name='bookingHistory'),
 ]

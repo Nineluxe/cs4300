@@ -17,7 +17,7 @@ class Seat(models.Model):
     isBooked = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.seat_number
+        return self.seatNumber
 
 
 class Booking(models.Model):
@@ -27,4 +27,4 @@ class Booking(models.Model):
     bookingDate = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.movie.title} - {self.seat.seat_number}"
+        return f"{self.user.username} - {self.movie.title} - {self.seat.seatNumber}"

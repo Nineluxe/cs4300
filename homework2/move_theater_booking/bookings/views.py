@@ -23,27 +23,27 @@ class BookingViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return Booking.objects.filter(user=self.request.user)
 
-def movie_list(request):
+def movieList(request):
     movies = Movie.objects.all()
-    return render(request, 'bookings/movie_list.html', {'movies': movies})
+    return render(request, 'bookings/movieList.html', {'movies': movies})
 
 @login_required
-def seat_booking(request, movie_id):
+def seatBooking(request, movie_id):
     movie = Movie.objects.get(id=movie_id)
     seats = Seat.objects.all()
 
-    return render(request, 'bookings/seat_booking.html', {
+    return render(request, 'bookings/seatBooking.html', {
         'movie': movie,
         'seats': seats
     })
 
 @login_required
-def book_seat(request, movie_id, seat_id):
+def bookSeat(request, movie_id, seat_id):
     movie = Movie.objects.get(id=movie_id)
     seat = Seat.objects.get(id=seat_id)
 
     if not seat.is_booked:
-        seat.is_booked = True
+        seat.isBooked = True
         seat.save()
 
         Booking.objects.create(
@@ -52,13 +52,13 @@ def book_seat(request, movie_id, seat_id):
             user=request.user
         )
 
-    return redirect('booking_history')
-    
+    return redirect('bookingHistory')
+
 @login_required
-def booking_history(request):
+def bookingHistory(request):
     bookings = Booking.objects.filter(user=request.user)
 
-    return render(request, 'bookings/booking_history.html', {
+    return render(request, 'bookings/bookingHistory.html', {
         'bookings': bookings
     })
 

@@ -16,7 +16,7 @@
                 {% if seat.is_booked %}
                     <span class="badge bg-danger">Booked</span>
                 {% else %}
-                    <form method="post" action="{% url 'book_seat' movie.id seat.id %}">
+                    <form method="post" action="{% url 'bookSeat' movie.id seat.id %}">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-success btn-sm">
                             Book
