@@ -18,7 +18,20 @@ class BookingViewSet(viewsets.ModelViewSet):
     serializer_class = BookingSerializer
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+
+        seat = serializer.validated_data['seat']
+
+        # Check if the seat is already booked
+        if seat.isBooked:
+            raise Exception("This seat is already booked.")
+
+        if not seat.isBooked:
+            # Mark the seat as booked
+            seat.isBooked = True
+            seat.save()
+
+            serializer.save(user=self.request.user)
+
 
     def get_queryset(self):
         return Booking.objects.filter(user=self.request.user)
