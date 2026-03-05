@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from . import views
 from rest_framework.routers import DefaultRouter
 from .views import MovieViewSet, SeatViewSet, BookingViewSet
@@ -10,6 +10,8 @@ router.register('seats', SeatViewSet)
 router.register('bookings', BookingViewSet)
 
 urlpatterns = [
+    path('api/', include(router.urls)),
+
     path('movies/', views.movieList, name='movieList'),
     path('', views.movieList, name='movieList'),
     path('movies/<int:movie_id>/seats/', views.seatBooking, name='seatBooking'),

@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ movie.title }}</h5>
                 <p class="card-text">{{ movie.description }}</p>
-                <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                <p><strong>Release Date:</strong> {{ movie.releaseDate }}</p>
                 <p><strong>Duration:</strong> {{ movie.duration }} minutes</p>
 
                 <a href="{% url 'seatBooking' movie.id %}" class="btn btn-primary">
