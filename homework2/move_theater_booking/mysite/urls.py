@@ -19,7 +19,7 @@ from django.urls import include, path
 
 def root_redirect(request):
     return redirect('movieList')
-    
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('bookings.urls')),
