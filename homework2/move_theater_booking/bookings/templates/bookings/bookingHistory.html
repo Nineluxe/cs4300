@@ -17,8 +17,8 @@
         {% for booking in bookings %}
         <tr>
             <td>{{ booking.movie.title }}</td>
-            <td>{{ booking.seat.seat_number }}</td>
-            <td>{{ booking.booking_date }}</td>
+            <td>{{ booking.seat.seatNumber }}</td>
+            <td>{{ booking.bookingDate }}</td>
         </tr>
         {% empty %}
         <tr>

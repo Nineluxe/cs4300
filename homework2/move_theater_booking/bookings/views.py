@@ -42,7 +42,7 @@ def bookSeat(request, movie_id, seat_id):
     movie = Movie.objects.get(id=movie_id)
     seat = Seat.objects.get(id=seat_id)
 
-    if not seat.is_booked:
+    if not seat.isBooked:
         seat.isBooked = True
         seat.save()
 

@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['app-bholland-21.devedu.io']
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://app-bholland-21.devedu.io",
+]
 
 # Application definition
 
