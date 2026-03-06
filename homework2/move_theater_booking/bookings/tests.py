@@ -75,7 +75,7 @@ class APITests(APITestCase):
             "seat": seat.id
         })
         
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     # Verify that double booking is handled properly
     def testCannotDoubleBookSeat(self):
