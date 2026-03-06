@@ -10,7 +10,6 @@ class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
-
 class SeatViewSet(viewsets.ModelViewSet):
     queryset = Seat.objects.all()
     serializer_class = SeatSerializer
@@ -18,23 +17,6 @@ class SeatViewSet(viewsets.ModelViewSet):
 class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
-
-    # # API booking logic
-    # def perform_create(self, serializer):
-
-    #     seat = serializer.validated_data['seat']
-
-    #     # Check if the seat is already booked
-    #     if seat.isBooked:
-    #         raise Exception("This seat is already booked.")
-
-    #     #if not seat.isBooked:
-    #     # Mark the seat as booked
-    #     seat.isBooked = True
-    #     seat.save()
-
-    #     serializer.save(user=self.request.user)
-
 
     def get_queryset(self):
         return Booking.objects.filter(user=self.request.user)
@@ -101,28 +83,3 @@ def clearBookings(request):
     bookings.delete()
 
     return redirect('bookingHistory')
-
-# # Create your views here.
-# def moviesListTest(request):
-#     movies = []
-
-#     # Open the file
-#     with open("movies.txt", "r") as file:
-#         for line in file:
-
-#             # Split the data inside the file
-#             title, director, year, duration = line.strip().split("|")
-
-#             # Create the structured data "packet"
-#             movies.append(
-#                 {
-#                     "title": title,
-#                     "director": director,
-#                     "year": year,
-#                     "duration": duration
-#                 }
-#             )
-
-#     # Pass the data to a template
-#     # Simulates what a database query would normally return
-#     return render(request, "bookings/moviesList.html", {"movies": movies})
