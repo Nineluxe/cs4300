@@ -1,0 +1,1 @@
+ChatGPT was used in building the frameworks of the .html files, much of the project style and "shape", much of the code in the files: tests.py, serializers.py, views.py, and settings.py.

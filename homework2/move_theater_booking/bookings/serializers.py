@@ -7,11 +7,13 @@ class MovieSerializer(serializers.ModelSerializer):
         model = Movie
         fields = '__all__'
 
+# Seat Serializer
 class SeatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Seat
         fields = '_all__'
 
+# Booking serializer
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
