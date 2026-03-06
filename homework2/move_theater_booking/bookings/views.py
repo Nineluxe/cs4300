@@ -3,6 +3,8 @@ from .models import Movie, Seat, Booking
 from .serializers import MovieSerializer, SeatSerializer, BookingSerializer
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
@@ -17,20 +19,21 @@ class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
 
-    def perform_create(self, serializer):
+    # # API booking logic
+    # def perform_create(self, serializer):
 
-        seat = serializer.validated_data['seat']
+    #     seat = serializer.validated_data['seat']
 
-        # Check if the seat is already booked
-        if seat.isBooked:
-            raise Exception("This seat is already booked.")
+    #     # Check if the seat is already booked
+    #     if seat.isBooked:
+    #         raise Exception("This seat is already booked.")
 
-        if not seat.isBooked:
-            # Mark the seat as booked
-            seat.isBooked = True
-            seat.save()
+    #     #if not seat.isBooked:
+    #     # Mark the seat as booked
+    #     seat.isBooked = True
+    #     seat.save()
 
-            serializer.save(user=self.request.user)
+    #     serializer.save(user=self.request.user)
 
 
     def get_queryset(self):
@@ -55,15 +58,21 @@ def bookSeat(request, movie_id, seat_id):
     movie = Movie.objects.get(id=movie_id)
     seat = Seat.objects.get(id=seat_id)
 
-    if not seat.isBooked:
-        seat.isBooked = True
-        seat.save()
+    if seat.isBooked:
+        return redirect('seatBooking', movie_id=movie.id)
 
-        Booking.objects.create(
-            movie=movie,
-            seat=seat,
-            user=request.user
-        )
+    seat.isBooked = True
+    seat.save()
+
+    Booking.objects.create(
+        movie=movie,
+        seat=seat,
+        user=request.user
+    )
+
+    # Debug
+    print("Booking seat:", seat.seatNumber)
+    print("Current status:", seat.isBooked)
 
     return redirect('bookingHistory')
 
@@ -74,6 +83,24 @@ def bookingHistory(request):
     return render(request, 'bookings/bookingHistory.html', {
         'bookings': bookings
     })
+
+
+# Finds the bookings of the logged-in user
+# Frees the seats by setting isBooked to False
+# Deletes the booking records
+# Finally redirects back to the booking history page
+@login_required
+def clearBookings(request):
+    bookings = Booking.objects.filter(user=request.user)
+
+    for booking in bookings:
+        seat = booking.seat
+        seat.isBooked = False
+        seat.save()
+
+    bookings.delete()
+
+    return redirect('bookingHistory')
 
 # # Create your views here.
 # def moviesListTest(request):

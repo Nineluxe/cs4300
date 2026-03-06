@@ -27,4 +27,10 @@
         {% endfor %}
     </tbody>
 </table>
+<form method="POST" action="{% url 'clearBookings' %}">
+    {% csrf_token %}
+    <button type="submit">Clear My Bookings</button>
+</form>
+
 {% endblock %}
+

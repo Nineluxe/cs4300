@@ -16,6 +16,9 @@ class Seat(models.Model):
     seatNumber = models.CharField()
     isBooked = models.BooleanField(default=False)
 
+    def getBooked(self):
+        return isBooked
+        
     def __str__(self):
         return self.seatNumber
 
